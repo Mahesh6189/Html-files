@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        font-size: 14px;
+        background-color: #f2f2f2;
+    }
+    .container{
+        border-left: 5px solid blue;
+        background: grey;
+        width:500px;
+        padding:25px;
+        margin: 50px auto 0;
+        border-top: 5px solid blue;
+        box-shadow: 0 0 7px 5px rgba(0,0,0,0.5);
+    }
+    .container h2{
+        font-size: 24px;
+        line-height: 24px;
+        padding:30px;
+        text-align: center;
+    }
+    .input-name{
+        width: 90%;
+        position: relative;
+        margin: 20px auto;
+    }
+    .name{
+        box-shadow:2px 2px 2px 2px grey ;
+        width: 45%;
+        padding: 8px 0px 8px 40px;
+    }
+    .input-name span {
+    }
+    .input-name i {
+        font-size: 18px ;
+        color: blue;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>Registration form</h2>
+        <div class="form">
+            <form id="registrationForm" action="" onsubmit="return validateForm()">
+              <div class="input-name">
+                <span>
+                  <i class="fa fa-user"></i>
+                  <input type="text" placeholder="first name" class="name" id="firstName">
+                </span>
+                <span>
+                  <i class="fa fa-user"></i>
+                  <input type="text" placeholder="last name" class="name" id="lastName">
+                </span>
+              </div>
+              <div class="input-name">
+                <span>
+                  <i class="fa fa-envelope email"></i>
+                  <input type="text" placeholder="Email" class="name" id="email">
+                </span>
+              </div>
+              <div class="input-name">
+                <span>
+                  <i class="fa fa-lock lock"></i>
+                  <input type="password" placeholder="password" class="name" id="password">
+                </span>
+              </div>
+              <div class="input-name">
+                <span>
+                  <i class="fa fa-lock lock"></i>
+                  <input type="password" placeholder="confirm password" class="name" id="confirmPassword">
+                </span>
+              </div>
+              <div class="input-name">
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
+              </div>
+              <div class="input-name">
+                <select name="country" id="country">
+                  <option value="">select a country</option>
+                  <option value="India">India</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="China">China</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Bhutan">Bhutan</option>
+                </select>
+                <div class="arrow"></div>
+              </div>
+              <div class="input-name">
+                <input type="checkbox" id="terms">
+                <label for="terms">I accept the term and condition</label>
+              </div>
+              <div class="input-name">
+                <input type="submit" class="button" value="Register">
+              </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var country = document.getElementById("country").value;
+            var terms = document.getElementById("terms").checked;
+            
+            if (firstName == "" || lastName == "" || email == "" || password == "" || confirmPassword == "" || !gender || country == "" || !terms) {
+                alert("All fields are required");
+                return false;
+            }
+            
+            if (password != confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</body>
+</html>
